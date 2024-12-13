@@ -30,6 +30,8 @@ app.get('/:username/:password', (req, res) => {
 // body
 app.get('/login', async (req, res) => {
   // find if username exist ?
+  console.log("login", req.body)
+
   const user = await client.db("test").collection("users").findOne(
     { username: { $eq: req.body.username }}
   )
@@ -52,6 +54,9 @@ app.get('/login', async (req, res) => {
 // body
 app.post('/register', async (req, res) => {
   // find if username exist ?
+  
+  console.log("register", req.body)
+
   const user = await client.db("test").collection("users").findOne(
     { username: { $eq: req.body.username }}
   )
